@@ -20,7 +20,7 @@ class TestTaskSequential : public ppc::core::Task {
 
  private:
   std::vector<int> input_, output_;
-  bool input_order;  // порядок сортировки (1 - по возрастанию, 0 - по убыванию)"
+  bool input_order;  // РїРѕСЂСЏРґРѕРє СЃРѕСЂС‚РёСЂРѕРІРєРё (1 - РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ, 0 - РїРѕ СѓР±С‹РІР°РЅРёСЋ)"
 };
 
 }  // namespace koshkin_n_shell_sort_batchers_even_odd_merge_seq

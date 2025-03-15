@@ -22,7 +22,7 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::Batch
   BatcherMerge(a, start, mid, order);
   BatcherMerge(a, mid, end, order);
 
-  // четно-нечетное слияние
+  // С‡РµС‚РЅРѕ-РЅРµС‡РµС‚РЅРѕРµ СЃР»РёСЏРЅРёРµ
   for (int i = start; i + 1 < end; i += 2) {
     swap(a, i, i + 1, order);
   }
@@ -36,10 +36,10 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::shell
   int n = arr.size();
   int gap = 1;
 
-  // генерация шагов Кнута
+  // РіРµРЅРµСЂР°С†РёСЏ С€Р°РіРѕРІ РљРЅСѓС‚Р°
   while (gap < n / 3) gap = 3 * gap + 1;
 
-  // шаги Шелла
+  // С€Р°РіРё РЁРµР»Р»Р°
   while (gap > 0) {
     for (int i = gap; i < n; i++) {
       int temp = arr[i];
@@ -52,7 +52,7 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::shell
     gap /= 3;
   }
 
-  // четно-нечетное слияние Бэтчера
+  // С‡РµС‚РЅРѕ-РЅРµС‡РµС‚РЅРѕРµ СЃР»РёСЏРЅРёРµ Р‘СЌС‚С‡РµСЂР°
   BatcherMerge(arr, 0, n, order);
 }
 
