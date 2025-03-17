@@ -3,7 +3,19 @@
 #include <algorithm>
 #include <cstddef>
 #include <iostream>
+#include <random>
 #include <vector>
+
+std::vector<int> koshkin_n_shell_sort_batchers_even_odd_merge_seq::getRandomVector(int sz) {
+  std::random_device dev;
+  std::mt19937 gen(dev());
+  std::uniform_int_distribution<int> dist(-100000, 100000);
+  std::vector<int> vec(sz);
+  for (int i = 0; i < sz; i++) {
+    vec[i] = dist(gen);
+  }
+  return vec;
+}
 
 void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::swap(std::vector<int> &a, int i, int j,
                                                                                 bool order) {
@@ -31,9 +43,9 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::Batch
   }
 }
 
-void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::shellBatcherSort(std::vector<int> &arr,
+void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::shellBatcherSort(std::vector<int> &a,
                                                                                             bool order) {
-  int n = arr.size();
+  int n = a.size();
   int gap = 1;
 
   // генерация шагов Кнута
@@ -42,18 +54,18 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::shell
   // шаги Шелла
   while (gap > 0) {
     for (int i = gap; i < n; i++) {
-      int temp = arr[i];
+      int temp = a[i];
       int j;
-      for (j = i; j >= gap && ((order && arr[j - gap] > temp) || (!order && arr[j - gap] < temp)); j -= gap) {
-        arr[j] = arr[j - gap];
+      for (j = i; j >= gap && ((order && a[j - gap] > temp) || (!order && a[j - gap] < temp)); j -= gap) {
+        a[j] = a[j - gap];
       }
-      arr[j] = temp;
+      a[j] = temp;
     }
     gap /= 3;
   }
 
   // четно-нечетное слияние Бэтчера
-  BatcherMerge(arr, 0, n, order);
+  BatcherMerge(a, 0, n, order);
 }
 
 bool koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::PreProcessingImpl() {

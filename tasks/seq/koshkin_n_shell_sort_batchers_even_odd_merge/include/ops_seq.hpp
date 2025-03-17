@@ -6,7 +6,7 @@
 #include "core/task/include/task.hpp"
 
 namespace koshkin_n_shell_sort_batchers_even_odd_merge_seq {
-
+std::vector<int> getRandomVector(int sz);
 class TestTaskSequential : public ppc::core::Task {
  public:
   void swap(std::vector<int>& a, int i, int j, bool order);

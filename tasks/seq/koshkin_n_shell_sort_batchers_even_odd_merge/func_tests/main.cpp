@@ -13,17 +13,6 @@
 #include "core/util/include/util.hpp"
 #include "seq/koshkin_n_shell_sort_batchers_even_odd_merge/include/ops_seq.hpp"
 
-std::vector<int> getRandomVector(int sz) {
-  std::random_device dev;
-  std::mt19937 gen(dev());
-  std::uniform_int_distribution<int> dist(-100000, 100000);
-  std::vector<int> vec(sz);
-  for (int i = 0; i < sz; i++) {
-    vec[i] = dist(gen);
-  }
-  return vec;
-}
-
 TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, positiveVectorAscending) {
   bool order = 1;
 
@@ -123,7 +112,7 @@ TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, positiveVectorDescending)
 TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, smallVectorDescending) {
   bool order = 0;
 
-  std::vector<int> in = getRandomVector(15);
+  std::vector<int> in = koshkin_n_shell_sort_batchers_even_odd_merge_seq::getRandomVector(15);
   std::vector<int> out(in.size(), 0);
 
   std::vector<int> res = in;
@@ -147,7 +136,7 @@ TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, smallVectorDescending) {
 TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, smallVectorAscending) {
   bool order = 1;
 
-  std::vector<int> in = getRandomVector(15);
+  std::vector<int> in = koshkin_n_shell_sort_batchers_even_odd_merge_seq::getRandomVector(15);
   std::vector<int> out(in.size(), 0);
 
   std::vector<int> res = in;
@@ -171,7 +160,7 @@ TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, smallVectorAscending) {
 TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, bigVectorDescending) {
   bool order = 0;
 
-  std::vector<int> in = getRandomVector(1500);
+  std::vector<int> in = koshkin_n_shell_sort_batchers_even_odd_merge_seq::getRandomVector(1500);
   std::vector<int> out(in.size(), 0);
 
   std::vector<int> res = in;
@@ -195,7 +184,7 @@ TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, bigVectorDescending) {
 TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, bigVectorAscending) {
   bool order = 1;
 
-  std::vector<int> in = getRandomVector(15);
+  std::vector<int> in = koshkin_n_shell_sort_batchers_even_odd_merge_seq::getRandomVector(15);
   std::vector<int> out(in.size(), 0);
 
   std::vector<int> res = in;
