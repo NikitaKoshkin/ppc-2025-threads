@@ -61,7 +61,7 @@ bool koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::PrePr
   auto *in_ptr = reinterpret_cast<int *>(task_data->inputs[0]);
   input_ = std::vector<int>(in_ptr, in_ptr + input_size);
 
-  input_order = task_data->inputs[1];
+  input_order = *reinterpret_cast<bool *>(task_data->inputs[1]);
 
   unsigned int output_size = task_data->outputs_count[0];
   output_ = std::vector<int>(output_size, 0);
@@ -70,14 +70,13 @@ bool koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::PrePr
 }
 
 bool koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::ValidationImpl() {
-  return task_data->inputs_count[0] == task_data->outputs_count[0];
+  return task_data->inputs_count[0] == task_data->outputs_count[0] && !task_data->inputs.empty() &&
+         !task_data->outputs.empty();
 }
 
 bool koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::RunImpl() {
-  bool order = input_order;  // stdcopy
-  shellBatcherSort(input_, order);
+  shellBatcherSort(input_, input_order);
   output_ = input_;
-
   return true;
 }
 
