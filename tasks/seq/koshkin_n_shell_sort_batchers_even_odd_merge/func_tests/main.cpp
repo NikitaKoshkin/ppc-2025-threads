@@ -24,7 +24,7 @@ std::vector<int> getRandomVector(int sz) {
   return vec;
 }
 
-TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, positiveVector¿scending) {
+TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, positiveVector–êscending) {
   bool order = 1;
 
   std::vector<int> in = {34, 8, 64, 51, 32, 21, 99, 3, 45, 12};
@@ -48,7 +48,7 @@ TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, positiveVector¿scending) 
   EXPECT_EQ(res, out);
 }
 
-TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, negativeVector¿scending) {
+TEST(koshkin_n_shell_sort_batchers_even_odd_merge_seq, negativeVector–êscending) {
   bool order = 1;
 
   std::vector<int> in = {-34, -8, -64, -51, -32, -21, -99, -3, -45, -12};
