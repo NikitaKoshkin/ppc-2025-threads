@@ -58,7 +58,7 @@ void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::Batch
 
 void koshkin_n_shell_sort_batchers_even_odd_merge_seq::TestTaskSequential::ShellBatcherSort(std::vector<int> &a,
                                                                                             bool order) {
-  int n = static_cast<int>( a.size());
+  int n = static_cast<int>(a.size());
   int gap = 1;
 
   // генерация шагов Кнута
