@@ -2,9 +2,9 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <functional>
 #include <memory>
 #include <vector>
-#include <xstddef>
 
 #include "core/task/include/task.hpp"
 #include "seq/koshkin_n_shell_sort_batchers_even_odd_merge/include/ops_seq.hpp"
